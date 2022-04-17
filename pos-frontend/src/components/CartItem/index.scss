@@ -1,0 +1,46 @@
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .button-set {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      width: 24px;
+      height: 24px;
+      border-radius: 12px;
+      border: #cccccc 1px solid;
+      transition: all 0.2s ease-in-out;
+      background: #5ca0b7;
+      color: #ffffff;
+
+      &:hover {
+        background: #467c8d;
+        cursor: pointer;
+      }
+    }
+
+    span {
+      margin: 4px 8px;
+    }
+  }
+
+  .remove-btn {
+    height: 28px;
+    border-radius: 4px;
+    border: #cccccc 1px solid;
+    transition: all 0.2s ease-in-out;
+    background: #dc4a4a;
+    color: #ffffff;
+
+    &:hover {
+      background: #981c1c;
+      cursor: pointer;
+    }
+  }
+}

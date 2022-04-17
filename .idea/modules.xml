@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/aw05.iml" filepath="$PROJECT_DIR$/.idea/aw05.iml" />
       <module fileurl="file://$PROJECT_DIR$/pos-carts/pos-carts.iml" filepath="$PROJECT_DIR$/pos-carts/pos-carts.iml" />
       <module fileurl="file://$PROJECT_DIR$/pos-discovery/pos-discovery.iml" filepath="$PROJECT_DIR$/pos-discovery/pos-discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pos-frontend/pos-frontend.iml" filepath="$PROJECT_DIR$/pos-frontend/pos-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/pos-gateway/pos-gateway.iml" filepath="$PROJECT_DIR$/pos-gateway/pos-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/pos-products/pos-products.iml" filepath="$PROJECT_DIR$/pos-products/pos-products.iml" />
     </modules>
