@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/api")
 public class CartController implements CartApi {
     private final CartMapper cartMapper;
 
