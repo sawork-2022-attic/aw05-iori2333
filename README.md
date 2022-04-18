@@ -13,6 +13,7 @@
 在`pos-frontend`项目下运行
 
 ```shell
+npm install
 npm run build
 npm run deploy
 ```
