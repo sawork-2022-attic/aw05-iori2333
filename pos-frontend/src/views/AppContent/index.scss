@@ -1,6 +1,6 @@
 .app-content {
   margin-top: 60px;
-  padding: 12px 5rem;
+  padding: 12px 10rem;
   top: 60px;
   display: flex;
   flex-direction: row;
@@ -17,8 +17,8 @@
   }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1024px) {
   .app-content {
-    padding: 12px 1rem;
+    padding: 12px 5rem;
   }
 }

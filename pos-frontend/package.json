@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "deploy": "tsc && vite build --outDir ../pos-gateway/src/main/resources/static --emptyOutDir",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "axios": "^0.26.1"
+    "axios": "^0.26.1",
+    "@vscode/codicons": "^0.0.29"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

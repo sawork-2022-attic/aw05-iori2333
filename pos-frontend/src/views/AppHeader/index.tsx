@@ -17,7 +17,10 @@ function AppHeader() {
   return (
     <header className="app-header">
       <span>MicroPos</span>
-      <input placeholder="Filter product..." onInput={handleInput} />
+      <div className="search-bar">
+        <div className="codicon codicon-search" />
+        <input placeholder="Filter product..." onInput={handleInput} />
+      </div>
     </header>
   );
 }
