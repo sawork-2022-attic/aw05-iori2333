@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect } from 'react';
 
 import { fetchCart, fetchProducts } from '../../api';
-import { Product } from '../../models';
+import { Item, Product } from '../../models';
 import CartContainer from '../../components/CartContainer';
 import ProductContainer from '../../components/ProductContainer';
 import { AppContext } from '../../components/AppStateProvider';
@@ -13,7 +13,7 @@ function AppContent() {
 
   const updateProducts = useCallback(async () => {
     const products = await fetchProducts();
-    dispatch({ type: 'SET_PRODUCTS', payload: products });
+    dispatch({ type: 'SET_PRODUCTS', payload: { products } });
     return products;
   }, [dispatch]);
 
@@ -28,8 +28,8 @@ function AppContent() {
             quantity: dto.quantity
           };
         })
-        .filter(item => item.product != undefined);
-      dispatch({ type: 'SET_CART', payload: items });
+        .filter(item => item.product != undefined) as Item[];
+      dispatch({ type: 'SET_CART', payload: { cart: items } });
     },
     [dispatch]
   );

@@ -7,18 +7,18 @@ export interface AppState {
   cart: Item[];
 }
 
-export type ActionType =
-  | 'ADD_CART'
-  | 'REMOVE_CART'
-  | 'MODIFY_CART'
-  | 'SET_FILTER'
-  | 'SET_PRODUCTS'
-  | 'SET_CART';
+type ActionMap = {
+  ADD_CART: { productId: string };
+  REMOVE_CART: { productId: string };
+  MODIFY_CART: { productId: string; quantity: number };
+  SET_FILTER: { filter: string };
+  SET_PRODUCTS: { products: Product[] };
+  SET_CART: { cart: Item[] };
+};
 
-interface Action {
-  type: ActionType;
-  payload: unknown;
-}
+export type Action<T = keyof ActionMap> = T extends keyof ActionMap
+  ? { type: T; payload: ActionMap[T] }
+  : never;
 
 export const AppContext = React.createContext<[AppState, Dispatch<Action>]>([
   {
@@ -40,18 +40,22 @@ function AppStateProvider(props: { children: React.ReactNode }) {
 
   const reducer = useCallback((state: AppState, action: Action) => {
     switch (action.type) {
-      case 'SET_CART':
+      case 'SET_CART': {
+        const { cart } = action.payload;
         return {
           ...state,
-          cart: action.payload as Item[]
+          cart
         };
-      case 'SET_PRODUCTS':
+      }
+      case 'SET_PRODUCTS': {
+        const { products } = action.payload;
         return {
           ...state,
-          products: action.payload as Product[]
+          products
         };
+      }
       case 'ADD_CART': {
-        const { productId } = action.payload as { productId: string };
+        const { productId } = action.payload;
         const product = state.products.find(p => p.id === productId);
         if (product) {
           const item = state.cart.find(i => i.product.id === productId);
@@ -77,10 +81,7 @@ function AppStateProvider(props: { children: React.ReactNode }) {
         return state;
       }
       case 'MODIFY_CART': {
-        const { productId, quantity } = action.payload as {
-          productId: string;
-          quantity: number;
-        };
+        const { productId, quantity } = action.payload;
         if (quantity <= 0) {
           return {
             ...state,
@@ -100,14 +101,14 @@ function AppStateProvider(props: { children: React.ReactNode }) {
         };
       }
       case 'REMOVE_CART': {
-        const { productId } = action.payload as { productId: string };
+        const { productId } = action.payload;
         return {
           ...state,
           cart: state.cart.filter(i => i.product.id !== productId)
         };
       }
       case 'SET_FILTER': {
-        const { filter } = action.payload as { filter: string };
+        const { filter } = action.payload;
         return {
           ...state,
           filter
